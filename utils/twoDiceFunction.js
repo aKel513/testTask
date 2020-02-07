@@ -1,4 +1,5 @@
 const http = require('../utils/httpFun');
+const expectCustom = require('../customFuncForTest/expect');
 
 module.exports.getHttpAsyncValueDice = async function (endpoint, valueDice, countRolls) {
     let promiseArray=[];
@@ -16,6 +17,20 @@ module.exports.getHttpValueDice = async function (endpoint, valueDice, countRoll
         let getResponseHtml = await http.getMethod(endpoint);
         let diceValue = getValueTwoDice(getResponseHtml);
         valueDice[diceValue]++;
+    }
+};
+
+module.exports.getDiceValueFromArray = async function (valueDiceObj, objReq ) {
+    let arrayValueDice = await http.postMethodForRndNumber(objReq.endpoint, objReq.apiKey,
+        objReq.id, objReq.count, objReq.minValue, objReq.maxValue);
+
+    await expectCustom.expectToCompare( arrayValueDice.result.random.data.length,
+        objReq.count,'check count element in response');
+    await expectCustom.expectToCompare( arrayValueDice.id,
+        objReq.id,'check id in response');
+
+    for (let i = 0; i < arrayValueDice.result.random.data.length; i++){
+        valueDiceObj[ arrayValueDice.result.random.data[i].toString()]++;
     }
 };
 

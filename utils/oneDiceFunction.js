@@ -33,6 +33,8 @@ module.exports.getDiceValueFromArray = async function (valueDiceObj, objReq ) {
 
     await expectCustom.expectToCompare( arrayValueDice.result.random.data.length,
         objReq.count,'check count element in response');
+    await expectCustom.expectToCompare( arrayValueDice.id,
+        objReq.id,'check id in response');
 
     for (let i = 0; i < arrayValueDice.result.random.data.length; i++){
         valueDiceObj[ arrayValueDice.result.random.data[i].toString()]++;
