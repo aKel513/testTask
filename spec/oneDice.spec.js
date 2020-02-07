@@ -22,11 +22,12 @@ describe("[ID1] Tests suit with one dice", () => {
         //     minValue: 1,
         //     maxValue: 6};
         //
+        ////1-2
         // await oneDiceFun.getDiceValueFromArray(valueDice, objReq);
         await oneDiceFun.getRandomValueDice(valueDice, 1000);
-
+        //3
         let pearsonChiSquareTest = generalFunction.pearsonChiSquareTest(valueDice, 6, 1000);
-
+        //4
         await expectCustom.expectToCompare(pearsonChiSquareTest < 5, true,
             `check pearsonChiSquareTest = ${pearsonChiSquareTest}`);
     });
@@ -41,11 +42,12 @@ describe("[ID1] Tests suit with one dice", () => {
         //     minValue: 1,
         //     maxValue: 6};
         //
+        ////1-2
         // await oneDiceFun.getDiceValueFromArray(valueDice, objReq);
         await oneDiceFun.getRandomValueDice(valueDice, 5000);
-
+        //3
         let pearsonChiSquareTest = generalFunction.pearsonChiSquareTest(valueDice, 6, 5000);
-
+        //4
         await expectCustom.expectToCompare(pearsonChiSquareTest < 5, true,
             `check pearsonChiSquareTest ${pearsonChiSquareTest}`);
     });
@@ -60,11 +62,12 @@ describe("[ID1] Tests suit with one dice", () => {
         //     minValue: 1,
         //     maxValue: 6};
         //
+        ////1-2
         // await oneDiceFun.getDiceValueFromArray(valueDice, objReq);
         await oneDiceFun.getRandomValueDice(valueDice, 10000);
-
+        //3
         let pearsonChiSquareTest = generalFunction.pearsonChiSquareTest(valueDice, 6, 10000);
-
+        //4
         await expectCustom.expectToCompare(pearsonChiSquareTest < 5, true,
             `check pearsonChiSquareTest ${pearsonChiSquareTest}`);
     });
