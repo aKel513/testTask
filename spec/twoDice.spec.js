@@ -2,6 +2,10 @@ const expectCustom = require('../customFuncForTest/expect');
 const twoDiceFun = require('../utils/twoDiceFunction');
 const objForTest = require('../data/objectDice');
 const generalFunction = require('../utils/generalFunction');
+let AllureReporter = require('jasmine-allure-reporter');
+jasmine.getEnv().addReporter(new AllureReporter({
+    resultsDir: 'allure-results'
+}));
 
 let originalTimeout;
 

@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "allure": "allure generate ./allure-results --clean -o allure-report || true"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "allure-commandline": "^2.13.0",
     "http": "0.0.0",
     "jasmine": "^3.5.0",
+    "jasmine-allure-reporter": "^1.0.2",
     "request": "^2.88.0"
   }
 }

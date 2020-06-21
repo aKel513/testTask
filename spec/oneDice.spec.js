@@ -3,6 +3,10 @@ const oneDiceFun = require('../utils/oneDiceFunction');
 const objForTest = require('../data/objectDice');
 const generalData = require('../data/generalData');
 const generalFunction = require('../utils/generalFunction');
+let AllureReporter = require('jasmine-allure-reporter');
+jasmine.getEnv().addReporter(new AllureReporter({
+    resultsDir: 'allure-results'
+}));
 
 let originalTimeout;
 
@@ -24,6 +28,7 @@ describe("[ID1] Tests suit with one dice", () => {
         //
         ////1-2
         // await oneDiceFun.getDiceValueFromArray(valueDice, objReq);
+        await a
         await oneDiceFun.getRandomValueDice(valueDice, 1000);
         //3
         let pearsonChiSquareTest = generalFunction.pearsonChiSquareTest(valueDice, 6, 1000);
